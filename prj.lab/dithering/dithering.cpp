@@ -27,17 +27,17 @@ void Dithering::AddToPixel(cv::Mat& im, int row, int col, int to_add) {
 void FloydSteinberg::Dither(const cv::Mat& image, std::string& filename_out) {
     cv::Mat im = image.clone();
     //std::string path_out = "C:/Users/romad/picturesr/Floyd/";
-    std::string path_out = "Floyd/";
+    std::string path_out = "";
     path_out.insert(path_out.size(), filename_out);
     int height = im.rows, width = im.cols;
     for (int row = 0; row < height; row += 1) {
         for (int col = 0; col < width; col += 1) {
             int oldpix = im.at<uchar>(row, col);
             int newpix = 0;
-            if (oldpix < 128) { //åñëè öâåò ïèêñåëÿ áëèæå ê ÷åðíîìó òî newpix áóäåò 0 ò.å ÷åðíûé
+            if (oldpix < 128) { //Ã¥Ã±Ã«Ã¨ Ã¶Ã¢Ã¥Ã² Ã¯Ã¨ÃªÃ±Ã¥Ã«Ã¿ Ã¡Ã«Ã¨Ã¦Ã¥ Ãª Ã·Ã¥Ã°Ã­Ã®Ã¬Ã³ Ã²Ã® newpix Ã¡Ã³Ã¤Ã¥Ã² 0 Ã².Ã¥ Ã·Ã¥Ã°Ã­Ã»Ã©
                 newpix = 0;
             }
-            else { //èíà÷å áåëûé
+            else { //Ã¨Ã­Ã Ã·Ã¥ Ã¡Ã¥Ã«Ã»Ã©
                 newpix = 255;
             }
             int  err = oldpix - newpix;
@@ -49,14 +49,14 @@ void FloydSteinberg::Dither(const cv::Mat& image, std::string& filename_out) {
         }
 
     }
-    cv::imwrite(path_out, im); //çàïèñûâàåì èçîáðàæåíèå
+    cv::imwrite(path_out, im); //Ã§Ã Ã¯Ã¨Ã±Ã»Ã¢Ã Ã¥Ã¬ Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥
     std::cout << "Done";
 }
 
 void Atkinson::Dither(const cv::Mat& image, std::string& filename_out) {
     cv::Mat im = image.clone();
     //std::string path_out = "C:/Users/romad/picturesr/Atkinson/";
-    std::string path_out = "Atkinson/";
+    std::string path_out = "";
     path_out.insert(path_out.size(), filename_out);
     int height = im.rows, width = im.cols;
     for (int row = 0; row < height; row += 1) {
@@ -64,10 +64,10 @@ void Atkinson::Dither(const cv::Mat& image, std::string& filename_out) {
             int oldpix = im.at<uchar>(row, col);
             double coef = 0.125;
             int newpix = 0;
-            if (oldpix < 128) { //åñëè öâåò ïèêñåëÿ áëèæå ê ÷åðíîìó òî newpix áóäåò 0 ò.å ÷åðíûé
+            if (oldpix < 128) { //Ã¥Ã±Ã«Ã¨ Ã¶Ã¢Ã¥Ã² Ã¯Ã¨ÃªÃ±Ã¥Ã«Ã¿ Ã¡Ã«Ã¨Ã¦Ã¥ Ãª Ã·Ã¥Ã°Ã­Ã®Ã¬Ã³ Ã²Ã® newpix Ã¡Ã³Ã¤Ã¥Ã² 0 Ã².Ã¥ Ã·Ã¥Ã°Ã­Ã»Ã©
                 newpix = 0;
             }
-            else { //èíà÷å áåëûé
+            else { //Ã¨Ã­Ã Ã·Ã¥ Ã¡Ã¥Ã«Ã»Ã©
                 newpix = 255;
             }
             int  err = oldpix - newpix;
@@ -82,7 +82,7 @@ void Atkinson::Dither(const cv::Mat& image, std::string& filename_out) {
         }
 
     }
-    cv::imwrite(path_out, im); //çàïèñûâàåì èçîáðàæåíèå
+    cv::imwrite(path_out, im); //Ã§Ã Ã¯Ã¨Ã±Ã»Ã¢Ã Ã¥Ã¬ Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥
     std::cout << "Done";
 }
 
@@ -96,10 +96,10 @@ void JarvisJudiceNinke::Dither(const cv::Mat& image, std::string& filename_out) 
         for (int col = 0; col < width; col += 1) {
             int oldpix = im.at<uchar>(row, col);
             int newpix = 0;
-            if (oldpix < 128) { //åñëè öâåò ïèêñåëÿ áëèæå ê ÷åðíîìó òî newpix áóäåò 0 ò.å ÷åðíûé
+            if (oldpix < 128) { //Ã¥Ã±Ã«Ã¨ Ã¶Ã¢Ã¥Ã² Ã¯Ã¨ÃªÃ±Ã¥Ã«Ã¿ Ã¡Ã«Ã¨Ã¦Ã¥ Ãª Ã·Ã¥Ã°Ã­Ã®Ã¬Ã³ Ã²Ã® newpix Ã¡Ã³Ã¤Ã¥Ã² 0 Ã².Ã¥ Ã·Ã¥Ã°Ã­Ã»Ã©
                 newpix = 0;
             }
-            else { //èíà÷å áåëûé
+            else { //Ã¨Ã­Ã Ã·Ã¥ Ã¡Ã¥Ã«Ã»Ã©
                 newpix = 255;
             }
             int  err = oldpix - newpix;
@@ -119,7 +119,7 @@ void JarvisJudiceNinke::Dither(const cv::Mat& image, std::string& filename_out) 
 
         }
     }
-    cv::imwrite(path_out, im); //çàïèñûâàåì èçîáðàæåíèå
+    cv::imwrite(path_out, im); //Ã§Ã Ã¯Ã¨Ã±Ã»Ã¢Ã Ã¥Ã¬ Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥
     std::cout << "Done";
 
 }
@@ -135,10 +135,10 @@ void Stucki::Dither(const cv::Mat& image, std::string& filename_out) {
             int oldpix = im.at<uchar>(row, col);
 
             int newpix = 0;
-            if (oldpix < 128) { //åñëè öâåò ïèêñåëÿ áëèæå ê ÷åðíîìó òî newpix áóäåò 0 ò.å ÷åðíûé
+            if (oldpix < 128) { //Ã¥Ã±Ã«Ã¨ Ã¶Ã¢Ã¥Ã² Ã¯Ã¨ÃªÃ±Ã¥Ã«Ã¿ Ã¡Ã«Ã¨Ã¦Ã¥ Ãª Ã·Ã¥Ã°Ã­Ã®Ã¬Ã³ Ã²Ã® newpix Ã¡Ã³Ã¤Ã¥Ã² 0 Ã².Ã¥ Ã·Ã¥Ã°Ã­Ã»Ã©
                 newpix = 0;
             }
-            else { //èíà÷å áåëûé
+            else { //Ã¨Ã­Ã Ã·Ã¥ Ã¡Ã¥Ã«Ã»Ã©
                 newpix = 255;
             }
             int  err = oldpix - newpix;
@@ -158,12 +158,12 @@ void Stucki::Dither(const cv::Mat& image, std::string& filename_out) {
         }
 
     }
-    cv::imwrite(path_out, im); //çàïèñûâàåì èçîáðàæåíèå
+    cv::imwrite(path_out, im); //Ã§Ã Ã¯Ã¨Ã±Ã»Ã¢Ã Ã¥Ã¬ Ã¨Ã§Ã®Ã¡Ã°Ã Ã¦Ã¥Ã­Ã¨Ã¥
     std::cout << "Done";
 }
 
 void FloydSteinberg::DitheringMap() {
-    std::string path = "C:/Users/romad/Documents/Èðèíà/Äîìàøêà óíèê/Êóðñîâàÿ/dithering maps/Floyd_Steinberg_Map.tex";
+    std::string path = "C:/Users/romad/Documents/ÃˆÃ°Ã¨Ã­Ã /Ã„Ã®Ã¬Ã Ã¸ÃªÃ  Ã³Ã­Ã¨Ãª/ÃŠÃ³Ã°Ã±Ã®Ã¢Ã Ã¿/dithering maps/Floyd_Steinberg_Map.tex";
     std::ofstream fout(path);
     fout << " \\documentclass[tikz]{standalone}\\usepackage{tikz}\\begin{document}\\begin{tikzpicture}" << "\n";
     std::string slash = "\t";
@@ -178,7 +178,7 @@ void FloydSteinberg::DitheringMap() {
 }
 
 void Atkinson::DitheringMap() {
-    std::string path = "C:/Users/romad/Documents/Èðèíà/Äîìàøêà óíèê/Êóðñîâàÿ/dithering maps/Akinson_Map.tex";
+    std::string path = "C:/Users/romad/Documents/ÃˆÃ°Ã¨Ã­Ã /Ã„Ã®Ã¬Ã Ã¸ÃªÃ  Ã³Ã­Ã¨Ãª/ÃŠÃ³Ã°Ã±Ã®Ã¢Ã Ã¿/dithering maps/Akinson_Map.tex";
     std::ofstream fout(path);
     fout << " \\documentclass[tikz]{standalone}\\usepackage{tikz}\\begin{document}\\begin{tikzpicture}" << "\n";
     std::string slash = "\t";
@@ -193,7 +193,7 @@ void Atkinson::DitheringMap() {
 }
 
 void JarvisJudiceNinke::DitheringMap() {
-    std::string path = "C:/Users/romad/Documents/Èðèíà/Äîìàøêà óíèê/Êóðñîâàÿ/dithering maps/Jarvis_Map.tex";
+    std::string path = "C:/Users/romad/Documents/ÃˆÃ°Ã¨Ã­Ã /Ã„Ã®Ã¬Ã Ã¸ÃªÃ  Ã³Ã­Ã¨Ãª/ÃŠÃ³Ã°Ã±Ã®Ã¢Ã Ã¿/dithering maps/Jarvis_Map.tex";
     std::ofstream fout(path);
     fout << " \\documentclass[tikz]{standalone}\\usepackage{tikz}\\begin{document}\\begin{tikzpicture}" << "\n";
     std::string slash = "\t";
@@ -208,7 +208,7 @@ void JarvisJudiceNinke::DitheringMap() {
 }
 
 void Stucki::DitheringMap() {
-    std::string path = "C:/Users/romad/Documents/Èðèíà/Äîìàøêà óíèê/Êóðñîâàÿ/dithering maps/Stucki_Map.tex";
+    std::string path = "C:/Users/romad/Documents/ÃˆÃ°Ã¨Ã­Ã /Ã„Ã®Ã¬Ã Ã¸ÃªÃ  Ã³Ã­Ã¨Ãª/ÃŠÃ³Ã°Ã±Ã®Ã¢Ã Ã¿/dithering maps/Stucki_Map.tex";
     std::ofstream fout(path);
     fout << " \\documentclass[tikz]{standalone}\\usepackage{tikz}\\begin{document}\\begin{tikzpicture}" << "\n";
     std::string slash = "\t";
