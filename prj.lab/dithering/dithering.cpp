@@ -56,7 +56,7 @@ void FloydSteinberg::Dither(const cv::Mat& image, std::string& filename_out) {
 void Atkinson::Dither(const cv::Mat& image, std::string& filename_out) {
     cv::Mat im = image.clone();
     //std::string path_out = "C:/Users/romad/picturesr/Atkinson/";
-    std::string path_out = "Atkinson";
+    std::string path_out = "Atkinson/";
     path_out.insert(path_out.size(), filename_out);
     int height = im.rows, width = im.cols;
     for (int row = 0; row < height; row += 1) {
@@ -89,7 +89,7 @@ void Atkinson::Dither(const cv::Mat& image, std::string& filename_out) {
 void JarvisJudiceNinke::Dither(const cv::Mat& image, std::string& filename_out) {
     cv::Mat im = image.clone();
     //std::string path_out = "C:/Users/romad/picturesr/Jarvis/";
-    std::string path_out = "Jarvis";
+    std::string path_out = "";
     path_out.insert(path_out.size(), filename_out);
     int height = im.rows, width = im.cols;
     for (int row = 0; row < height; row += 1) {
@@ -127,7 +127,7 @@ void JarvisJudiceNinke::Dither(const cv::Mat& image, std::string& filename_out) 
 void Stucki::Dither(const cv::Mat& image, std::string& filename_out) {
     cv::Mat im = image.clone();
     //std::string path_out = "C:/Users/romad/picturesr/Stucki/";
-    std::string path_out = "Stucki";
+    std::string path_out = "";
     path_out.insert(path_out.size(), filename_out);
     int height = im.rows, width = im.cols;
     for (int row = 0; row < height; row += 1) {
