@@ -20,8 +20,8 @@ int main() {
 
     //std::ifstream file(argv[1]);
     //cv::Mat img=cv::imread(argv[1], cv::IMREAD_UNCHANGED);
-    std::string path = "C:/Users/romad/picturesr/in_9.png";
-    cv::Mat img = cv::imread(path, cv::IMREAD_UNCHANGED);
+    //std::string path = "C:/Users/romad/picturesr/in_9.png";
+    //cv::Mat img = cv::imread(path, cv::IMREAD_UNCHANGED);
     //cv::imwrite("out_try.png", img)
     std::string out_file = "out_9.png";
 
