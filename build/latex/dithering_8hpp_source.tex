@@ -1,0 +1,58 @@
+\hypertarget{dithering_8hpp_source}{}\doxysection{dithering.\+hpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ DITHERING\_LIB\_2023}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ DITHERING\_LIB\_2023}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <opencv2/opencv.hpp>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <opencv2/highgui.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_dithering}{Dithering}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dithering_aabcfcaa368cc519b60a4f05f76aa4278}{ChangePixel}}(cv::Mat\&\ im,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{int}\ value);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dithering_ab43001de2b7000e1e12aeaddf849be49}{AddToPixel}}(cv::Mat\&\ im,\ \textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{int}\ to\_add);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dithering_a5a45ac2cff6d31836b3cfabcadb79ff9}{Dither}}(\textcolor{keyword}{const}\ cv::Mat\&\ image,\ std::string\&\ filename\_out)\ =\ 0;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_dithering_af0093fe5e4210cec279e6099eef2e48e}{DitheringMap}}()\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ format(cv::Mat\&\ im);}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_floyd_steinberg}{FloydSteinberg}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_dithering}{Dithering}}\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_floyd_steinberg_a71507448f5d6cc055eca47624e13116a}{DitheringMap}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_floyd_steinberg_ac98e76dc2bfc9b52206d79d5c7cb66f0}{Dither}}(\textcolor{keyword}{const}\ cv::Mat\&\ image,\ std::string\&\ filename\_out)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ k1\_\ =\ \{\ 7.0f\ /\ 16\ \},\ k2\_\ =\ \{\ 3.0f\ /\ 16\ \},\ k3\_\ =\ \{\ 5.0f\ /\ 16\ \},\ k4\_\ =\ \{\ 1.0f\ /\ 16\ \};}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_atkinson}{Atkinson}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_dithering}{Dithering}}\ \{}
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_atkinson_a156d2e7cd06b47b17b3da47a87ae4cef}{DitheringMap}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_atkinson_a1296462167480eab64c83527f8314171}{Dither}}(\textcolor{keyword}{const}\ cv::Mat\&\ image,\ std::string\&\ filename\_out)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ k\_\ =\ \{\ 1.0f\ /\ 8\ \};}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_jarvis_judice_ninke}{JarvisJudiceNinke}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_dithering}{Dithering}}\ \{}
+\DoxyCodeLine{00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jarvis_judice_ninke_aea82f2661cc84aaa4f1a13307bd3452a}{DitheringMap}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_jarvis_judice_ninke_a28e556980fc16f553e307b5040eae91d}{Dither}}(\textcolor{keyword}{const}\ cv::Mat\&\ image,\ std::string\&\ filename\_out)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ k1\_\ =\ \{\ 7.0f\ /\ 48\ \},\ k2\_\ =\ \{\ 5.0f\ /\ 48\ \},\ k3\_\ =\ \{\ 3.0f\ /\ 48\ \},\ k4\_\ =\ \{\ 1.0f\ /\ 48\ \};}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_stucki}{Stucki}}\ :\textcolor{keyword}{public}\ \mbox{\hyperlink{class_dithering}{Dithering}}\ \{}
+\DoxyCodeLine{00064\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stucki_a9209cd75071ecc024557b297ebbc9b12}{DitheringMap}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_stucki_a31760621ab2c973c65ffa46ed39d95e0}{Dither}}(\textcolor{keyword}{const}\ cv::Mat\&\ image,\ std::string\&\ filename\_out)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ k1\_\ =\ \{\ 8.0f\ /\ 42.0\ \},\ k2\_\ =\ \{\ 4.0f\ /\ 42.0\ \},\ k3\_\ =\ \{\ 2.0f\ /\ 42.0\ \},\ k4\_\ =\ \{\ 1.0f\ /\ 42.0\ \};}
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,8 @@
+C:/Users/romad/source/repos/ditheringLIB/dithering_lib/build/CMakeFiles/INSTALL.dir
+C:/Users/romad/source/repos/ditheringLIB/dithering_lib/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/romad/source/repos/ditheringLIB/dithering_lib/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/romad/source/repos/ditheringLIB/dithering_lib/build/prj.lab/CMakeFiles/INSTALL.dir
+C:/Users/romad/source/repos/ditheringLIB/dithering_lib/build/prj.lab/dithering/CMakeFiles/dithering.dir
+C:/Users/romad/source/repos/ditheringLIB/dithering_lib/build/prj.lab/dithering/CMakeFiles/INSTALL.dir
+C:/Users/romad/source/repos/ditheringLIB/dithering_lib/build/prj.test/CMakeFiles/dithering_test.dir
+C:/Users/romad/source/repos/ditheringLIB/dithering_lib/build/prj.test/CMakeFiles/INSTALL.dir

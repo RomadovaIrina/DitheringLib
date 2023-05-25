@@ -1,0 +1,5 @@
+add_executable(dithering_test "dithering_test.cpp")
+#target_link_libraries(dithering_test dithering doctest::doctest)
+#target_link_libraries( dithering_test dithering ${OpenCV_LIBS} ) 
+target_link_libraries(dithering_test PRIVATE dithering opencv_core opencv_highgui)
+#add_test(NAME dithering_test COMMAND dithering_test)
